@@ -1,1 +1,1 @@
-export {default as printHelloWorld} from './print-hello-world';
+export { default as printHelloWorld } from './print-hello-world';

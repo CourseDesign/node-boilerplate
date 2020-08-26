@@ -20,5 +20,8 @@
   "homepage": "https://github.com/CourseDesign/design-system#readme",
   "devDependencies": {
     "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "hello-world": "file:package/hello-world"
   }
 }
