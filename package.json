@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "run": "node dist",
+    "run": "node dist/index.js",
     "build": "tsc",
     "build-all": "./script/build-all-package.sh",
     "package-init": "./script/create-package.sh",
