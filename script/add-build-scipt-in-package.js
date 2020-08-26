@@ -9,4 +9,4 @@ if (packagePath == null) {
 const packageJson = require(packagePath);
 packageJson.scripts['build'] = 'tsc';
 
-fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2));
+fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');

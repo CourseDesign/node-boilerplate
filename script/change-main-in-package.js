@@ -16,4 +16,4 @@ if (mainScript == null) {
 
 packageJson['main'] = mainScript;
 
-fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2));
+fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
