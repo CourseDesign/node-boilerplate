@@ -6,6 +6,7 @@
   "scripts": {
     "run": "node dist",
     "build": "tsc",
+    "build-all": "./script/build-all-package.sh",
     "tsc-init": "tsc --init"
   },
   "repository": {
