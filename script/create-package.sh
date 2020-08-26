@@ -2,7 +2,7 @@
 
 if [ -z "$1" ]; then
 	echo "Package name is undefined!"
-	exit -1
+	exit 1
 else
   echo "Package name is "$1
 fi
