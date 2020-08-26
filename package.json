@@ -1,0 +1,24 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node dist",
+    "build": "tsc",
+    "tsc-init": "tsc --init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CourseDesign/design-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CourseDesign/design-system/issues"
+  },
+  "homepage": "https://github.com/CourseDesign/design-system#readme",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}
