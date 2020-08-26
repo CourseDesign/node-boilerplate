@@ -33,5 +33,5 @@ node ../../script/change-main-in-package.js "${package}/package.json" dist/index
 mkdir src
 
 # package 설치
-cd rootPackage
+cd ${rootPackage}
 npm install ${package}
