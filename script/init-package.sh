@@ -21,6 +21,8 @@ npm init
 
 # typescript 설정
 npm i typescript --save-dev
+npm i @types/node --save-dev
+
 cp ../../tsconfig.json tsconfig.json
 
 # package.json 수정
