@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filepath=$(pwd)
+rootPackage=$(pwd)
 
 #자식 프로젝트 빌드
 for package in ./package/*; do
@@ -8,7 +8,7 @@ for package in ./package/*; do
     echo "Build ${package}"
     cd ${package}
     npm run build
-    cd ${filepath}
+    cd ${rootPackage}
   fi
 done
 
