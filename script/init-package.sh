@@ -25,7 +25,7 @@ npm init
 npm i typescript --save-dev
 npm i @types/node --save-dev
 
-ln -s ../../tsconfig.json tsconfig.json
+cp ../../tsconfig.json tsconfig.json
 
 node ../../script/change-main-in-package.js "${package}/package.json" dist/index.js
 
@@ -33,7 +33,7 @@ node ../../script/change-main-in-package.js "${package}/package.json" dist/index
 npm install gulp --save-dev
 npm install gulp-typescript --save-dev
 
-ln -s ../../gulpfile.js gulpfile.js
+cp ../../gulpfile.js gulpfile.js
 
 node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
 
