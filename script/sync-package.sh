@@ -22,5 +22,3 @@ node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${tar
 node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint"
 node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint:staged"
 node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.test"
-
-

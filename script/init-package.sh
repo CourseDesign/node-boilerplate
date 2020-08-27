@@ -79,4 +79,3 @@ cd ${rootPackage}
 npm install ${package}
 
 echo "🎉 Finish to install ${packageName} in ${packageDir}"
-
