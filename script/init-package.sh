@@ -16,6 +16,8 @@ cd package
 mkdir $1
 cd $1
 
+package=$(pwd)
+
 # npm 설정
 npm init
 
@@ -23,13 +25,17 @@ npm init
 npm i typescript --save-dev
 npm i @types/node --save-dev
 
-cp ../../tsconfig.json tsconfig.json
+ln -s ../../tsconfig.json tsconfig.json
 
-# package.json 수정
-package=$(pwd)
-
-node ../../script/add-scipt-in-package.js "${package}/package.json" build tsc
 node ../../script/change-main-in-package.js "${package}/package.json" dist/index.js
+
+# gulp 설정
+npm install gulp --save-dev
+npm install gulp-typescript --save-dev
+
+ln -s ../../gulpfile.js gulpfile.js
+
+node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
 
 # 소스 파일 폴더 생성
 mkdir src
@@ -37,3 +43,4 @@ mkdir src
 # package 설치
 cd ${rootPackage}
 npm install ${package}
+
