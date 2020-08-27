@@ -10,6 +10,7 @@
     "lint": "",
     "test": "",
     "package:init": "script/init-package.sh",
+    "package:neon:init": "script/init-neon-package.sh package",
     "tsc:init": "tsc --init",
     "all:build": "script/run-script-all-package.sh build",
     "all:lint": "script/run-script-all-package.sh lint",
