@@ -6,6 +6,7 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
+    "neon": "neon",
     "lint": "",
     "test": "",
     "package:init": "script/init-package.sh",
@@ -35,6 +36,7 @@
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.2.5",
+    "neon-cli": "^0.4.0",
     "typescript": "^4.0.2"
   }
 }
