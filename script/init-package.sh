@@ -28,7 +28,7 @@ cp ../../tsconfig.json tsconfig.json
 # package.json 수정
 package=$(pwd)
 
-node ../../script/add-build-scipt-in-package.js "${package}/package.json"
+node ../../script/add-scipt-in-package.js "${package}/package.json" build tsc
 node ../../script/change-main-in-package.js "${package}/package.json" dist/index.js
 
 # 소스 파일 폴더 생성
