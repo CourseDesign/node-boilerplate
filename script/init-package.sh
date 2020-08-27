@@ -55,10 +55,11 @@ echo "🎉 Finish lint setting"
 node ../../script/change-in-package.js "${package}/package.json" main "dist/index.js"
 node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" lint-staged
 
-node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
-node ../../script/add-scipt-in-package.js "${package}/package.json" lint "eslint --fix"
-node ../../script/add-scipt-in-package.js "${package}/package.json" lint:staged "lint-staged"
-node ../../script/add-scipt-in-package.js "${package}/package.json" test ''
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.lint"
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.lint:staged"
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
 
 echo "🎉 Finish to update package.json"
 
