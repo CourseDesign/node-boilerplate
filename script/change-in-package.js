@@ -14,7 +14,7 @@ if (key == null) {
   process.exit(1);
 }
 
-let value = process.argv[4];
+const value = process.argv[4];
 if (value == null) {
   console.error('Value is undefined!');
   process.exit(1);
