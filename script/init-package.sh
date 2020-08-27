@@ -12,6 +12,7 @@ fi
 
 packageDir=$1
 packageName=$2
+scriptDir=$(dirname "$0")
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
@@ -50,8 +51,8 @@ echo "🎉 Finish gulp setting"
 
 # lint 설정
 npm install --save-dev lint-staged
-npm i --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-npm i --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+npm install --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 
 cp ${rootPackage}/.eslintrc.json .eslintrc.json
 cp ${rootPackage}/.eslintignore .eslintignore
@@ -60,9 +61,9 @@ echo "🎉 Finish lint setting"
 
 # package.json 수정
 
-node ../../script/change-package.js "${package}/package.json" main "dist/index.js"
+node ${scriptDir}/change-package.js "${package}/package.json" main "dist/index.js"
 
-sh ../../script/sync-package.sh ${rootPackage} ${package}
+sh ${scriptDir}/sync-package.sh ${rootPackage} ${package}
 
 echo "🎉 Finish to update package.json"
 
