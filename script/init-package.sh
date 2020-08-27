@@ -39,10 +39,16 @@ npm install gulp-typescript --save-dev
 
 cp ../../gulpfile.js gulpfile.js
 
-node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
-node ../../script/change-in-package.js "${package}/package.json" main dist/index.js
-
 echo "🎉 Finish gulp setting"
+
+# package.json 수장
+
+node ../../script/change-in-package.js "${package}/package.json" main dist/index.js
+node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
+node ../../script/add-scipt-in-package.js "${package}/package.json" lint ''
+node ../../script/add-scipt-in-package.js "${package}/package.json" test ''
+
+echo "🎉 Finish to update package.json"
 
 # 소스 파일 폴더 생성
 mkdir src
