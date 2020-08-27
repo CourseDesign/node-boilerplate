@@ -6,13 +6,13 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
-    "all:build": "script/run-script-all-package.sh build",
     "lint": "",
-    "all:lint": "script/run-script-all-package.sh lint",
     "test": "",
-    "all:test": "script/run-script-all-package.sh test",
     "package:init": "script/init-package.sh",
-    "tsc:init": "tsc --init"
+    "tsc:init": "tsc --init",
+    "all:build": "script/run-script-all-package.sh build",
+    "all:lint": "script/run-script-all-package.sh lint",
+    "all:test": "script/run-script-all-package.sh test"
   },
   "repository": {
     "type": "git",
