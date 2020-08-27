@@ -50,7 +50,7 @@ cp ${rootPackage}/eslint.json eslint.json
 
 echo "🎉 Finish lint setting"
 
-# package.json 수장
+# package.json 수정
 
 node ../../script/change-in-package.js "${package}/package.json" main "dist/index.js"
 node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" lint-staged
