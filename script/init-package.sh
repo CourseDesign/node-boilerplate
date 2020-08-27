@@ -60,14 +60,9 @@ echo "🎉 Finish lint setting"
 
 # package.json 수정
 
-node ../../script/change-in-package.js "${package}/package.json" main "dist/index.js"
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" lint-staged
+node ../../script/change-package.js "${package}/package.json" main "dist/index.js"
 
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.lint"
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.lint:staged"
-node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
+sh ../../script/sync-package.sh ${rootPackage} ${package}
 
 echo "🎉 Finish to update package.json"
 
