@@ -29,7 +29,7 @@ npm init
 npm i typescript --save-dev
 npm i @types/node --save-dev
 
-cp %{rootPackage}/tsconfig.json tsconfig.json
+cp ${rootPackage}/tsconfig.json tsconfig.json
 
 echo "🎉 Finish typescript setting"
 
@@ -37,7 +37,7 @@ echo "🎉 Finish typescript setting"
 npm install gulp --save-dev
 npm install gulp-typescript --save-dev
 
-cp %{rootPackage}/gulpfile.js gulpfile.js
+cp ${rootPackage}/gulpfile.js gulpfile.js
 
 echo "🎉 Finish gulp setting"
 
@@ -46,17 +46,18 @@ npm install --save-dev lint-staged
 npm i --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 npm i --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 
-cp %{rootPackage}/eslint.json eslint.json
+cp ${rootPackage}/eslint.json eslint.json
 
 echo "🎉 Finish lint setting"
 
 # package.json 수장
 
-node ../../script/change-in-package.js "${package}/package.json" main dist/index.js
-node ../../script/change-in-package.js "${package}/package.json" lint-staged "{ "*.{js,ts}": "eslint --fix" }"
+node ../../script/change-in-package.js "${package}/package.json" main "dist/index.js"
+node ../../script/copy-package-element "${rootPackage}/package.json" "${package}/package.json" lint-staged
 
 node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
-node ../../script/add-scipt-in-package.js "${package}/package.json" lint lint-staged
+node ../../script/add-scipt-in-package.js "${package}/package.json" lint "eslint --fix"
+node ../../script/add-scipt-in-package.js "${package}/package.json" lint:staged "lint-staged"
 node ../../script/add-scipt-in-package.js "${package}/package.json" test ''
 
 echo "🎉 Finish to update package.json"

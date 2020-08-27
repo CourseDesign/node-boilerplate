@@ -6,13 +6,15 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
-    "lint": "lint-staged",
+    "lint": "eslint --fix",
+    "lint:staged": "lint-staged",
     "test": "",
     "package:init": "script/init-package.sh",
     "tsc:init": "tsc --init",
     "eslint:init": "eslint --init",
     "all:build": "script/run-script-all-package.sh build",
     "all:lint": "script/run-script-all-package.sh lint",
+    "all:lint:staged": "script/run-script-all-package.sh lint:staged",
     "all:test": "script/run-script-all-package.sh test"
   },
   "repository": {
@@ -28,12 +30,13 @@
   "husky": {
     "hooks": {
       "pre-push": "npm run all:test",
-      "pre-commit": "npm run all:lint"
+      "pre-commit": "npm run all:lint:staged"
     }
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix"
+    "src/*.{js,ts}": [
+      "eslint --fix",
+      "git add"
     ]
   },
   "devDependencies": {

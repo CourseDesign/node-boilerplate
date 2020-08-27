@@ -7,7 +7,7 @@ fi
 
 rootPackage=$(pwd)
 
-#자식 프로젝트 빌드
+#자식 프로젝트 실행
 for package in ./package/*; do
   if [ -d "${package}" ]; then
     cd ${package}
@@ -16,6 +16,6 @@ for package in ./package/*; do
   fi
 done
 
-# 루드 프로젝트 빌드
-npm run build
+# 루드 프로젝트 실행
+npm run $1
 
