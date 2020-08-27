@@ -6,7 +6,7 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
-    "build-all": "./script/build-all-package.sh",
+    "build-all": "script/run-script-all-package.sh build",
     "package-init": "script/init-package.sh",
     "tsc-init": "tsc --init"
   },

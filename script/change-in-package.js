@@ -8,12 +8,18 @@ if (packagePath == null) {
 
 const packageJson = require(packagePath);
 
-const mainScript = process.argv[3];
-if (mainScript == null) {
-  console.error('Main script is undefined!');
+const key = process.argv[3];
+if (key == null) {
+  console.error('Key is undefined!');
   process.exit(1);
 }
 
-packageJson['main'] = mainScript;
+const value = process.argv[4];
+if (value == null) {
+  console.error('Value is undefined!');
+  process.exit(1);
+}
+
+packageJson[key] = value;
 
 fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
