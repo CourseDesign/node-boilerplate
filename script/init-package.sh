@@ -52,6 +52,7 @@ echo "🎉 Finish gulp setting"
 npm install --save-dev lint-staged
 npm install --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
 
 cp ${rootPackage}/.eslintrc.json .eslintrc.json
 cp ${rootPackage}/.eslintignore .eslintignore
