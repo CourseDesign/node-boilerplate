@@ -12,18 +12,18 @@ fi
 
 packageDir=$1
 packageName=$2
-
 rootPackage=$(pwd)
-
 scriptDir=$(dirname "$0")
 
 cd packageDir
 cd packageName
 
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" lint-staged
+package=$(pwd)
 
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.run"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.build"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.lint"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.lint:staged"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.test"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" lint-staged
+
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.lint"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.lint:staged"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"

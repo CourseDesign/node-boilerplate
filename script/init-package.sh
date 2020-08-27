@@ -13,10 +13,9 @@ fi
 packageDir=$1
 packageName=$2
 scriptDir=$(dirname "$0")
+rootPackage=$(pwd)
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
-
-rootPackage=$(pwd)
 
 # 폴더로 이동
 mkdir ${packageDir}
