@@ -1,22 +1,29 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-	echo "Package name is undefined!"
+	echo "Package directory is undefined!"
 	exit 1
-else
-  echo "Package name is "$1
 fi
 
-echo "🚀 Start to creat new package $1..."
+if [ -z "$2" ]; then
+	echo "Package name is undefined!"
+	exit 1
+fi
+
+packageDir=$1
+packageName=$2
+
+echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
 rootPackage=$(pwd)
 
 # 폴더로 이동
-cd package
+mkdir ${packageDir}
+cd ${packageDir}
 
 # 폴더 생성
-mkdir $1
-cd $1
+mkdir ${packageName}
+cd ${packageName}
 
 echo "🎉 Finish to create new package directory"
 
@@ -46,7 +53,8 @@ npm install --save-dev lint-staged
 npm i --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 npm i --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 
-cp ${rootPackage}/eslint.json eslint.json
+cp ${rootPackage}/.eslintrc.json .eslintrc.json
+cp ${rootPackage}/.eslintignore .eslintignore
 
 echo "🎉 Finish lint setting"
 
@@ -74,5 +82,5 @@ echo "🎉 Finish to create default file"
 cd ${rootPackage}
 npm install ${package}
 
-echo "🎉 Finish to install $1"
+echo "🎉 Finish to install ${packageName} in ${packageDir}"
 
