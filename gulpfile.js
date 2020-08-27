@@ -6,5 +6,5 @@ const outDir = 'dist'
 
 gulp.task('default', () => tsProject.src()
     .pipe(tsProject())
-    .js.pipe(gulp.dest(outDir))
+    .pipe(gulp.dest(outDir))
 );

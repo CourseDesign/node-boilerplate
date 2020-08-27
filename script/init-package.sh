@@ -40,6 +40,8 @@ node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
 # 소스 파일 폴더 생성
 mkdir src
 
+touch src/index.ts
+
 # package 설치
 cd ${rootPackage}
 npm install ${package}
