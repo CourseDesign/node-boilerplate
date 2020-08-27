@@ -15,12 +15,12 @@ targetPackage=$2
 
 scriptDir=$(dirname "$0")
 
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" lint-staged
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" lint-staged
 
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" "scripts.run"
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" "scripts.build"
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" "scripts.lint"
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" "scripts.lint:staged"
-node scriptDir/copy-targetPackage-element "${sourcePackage}/targetPackage.json" "${targetPackage}/targetPackage.json" "scripts.test"
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.run"
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.build"
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint"
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint:staged"
+node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.test"
 
 
