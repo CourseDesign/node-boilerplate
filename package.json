@@ -10,6 +10,7 @@
     "lint:staged": "lint-staged",
     "test": "",
     "package:init": "script/init-package.sh package",
+    "package:sync": "script/sync-package.sh $(pwd)",
     "tsc:init": "tsc --init",
     "eslint:init": "eslint --init",
     "all:build": "script/run-script-all-package.sh build",
