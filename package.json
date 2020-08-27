@@ -6,7 +6,7 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
-    "lint": "eslint --fix",
+    "lint": "eslint --fix . --resolve-plugins-relative-to .",
     "lint:staged": "lint-staged",
     "test": "",
     "package:init": "script/init-package.sh package",
@@ -54,5 +54,8 @@
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "test": "file:package/test"
   }
 }

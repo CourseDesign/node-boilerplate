@@ -50,12 +50,19 @@ echo "🎉 Finish gulp setting"
 
 # lint 설정
 npm install --save-dev lint-staged
-npm install --save-dev typescript eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
-npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
 
-cp ${rootPackage}/.eslintrc.json .eslintrc.json
+echo "add eslintrc file"
+
+echo "{ \"extends\": [\"../../.eslintrc.json\"] }" >> ${package}/.eslintrc.json
 cp ${rootPackage}/.eslintignore .eslintignore
+
+echo "install eslint"
+
+cd ${rootPackage}
+node ${rootPackage}/script/add-eslint-parse-option.js "${packageName}"
+# npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+# npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+# npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
 
 echo "🎉 Finish lint setting"
 
