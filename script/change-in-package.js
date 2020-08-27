@@ -20,6 +20,8 @@ if (value == null) {
   process.exit(1);
 }
 
-packageJson[key] = value;
+const json = JSON.parse(value);
+
+packageJson[key] = json;
 
 fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
