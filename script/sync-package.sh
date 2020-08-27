@@ -10,15 +10,20 @@ if [ -z "$2" ]; then
 	exit 1
 fi
 
-sourcePackage=$1
-targetPackage=$2
+packageDir=$1
+packageName=$2
+
+rootPackage=$(pwd)
 
 scriptDir=$(dirname "$0")
 
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" lint-staged
+cd packageDir
+cd packageName
 
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.run"
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.build"
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint"
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.lint:staged"
-node ${scriptDir}/copy-package-element.js "${sourcePackage}/package.json" "${targetPackage}/package.json" "scripts.test"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" lint-staged
+
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.run"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.build"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.lint"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.lint:staged"
+node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "./package.json" "scripts.test"

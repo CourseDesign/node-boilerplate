@@ -60,10 +60,13 @@ cp ${rootPackage}/.eslintignore .eslintignore
 echo "🎉 Finish lint setting"
 
 # package.json 수정
+cd ${rootPackage}
 
 node ${scriptDir}/change-package.js "${package}/package.json" main "dist/index.js"
 
-sh ${scriptDir}/sync-package.sh ${rootPackage} ${package}
+sh ${scriptDir}/sync-package.sh ${packageDir} ${packageName}
+
+cd ${package}
 
 echo "🎉 Finish to update package.json"
 
