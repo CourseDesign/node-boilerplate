@@ -12,7 +12,7 @@
     "package:init": "script/init-package.sh package",
     "package:sync": "script/sync-package.sh package",
     "tsc:init": "tsc --init",
-    "eslint:init": "eslint --init",
+    "eslint": "eslint",
     "all:build": "script/run-script-all-package.sh build",
     "all:lint": "script/run-script-all-package.sh lint",
     "all:lint:staged": "script/run-script-all-package.sh lint:staged",
