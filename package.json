@@ -6,13 +6,13 @@
   "scripts": {
     "run": "node dist/index.js",
     "build": "gulp",
-    "build:all": "script/run-script-all-package.sh build",
+    "all:build": "script/run-script-all-package.sh build",
     "lint": "",
-    "lint:all": "script/run-script-all-package.sh lint",
+    "all:lint": "script/run-script-all-package.sh lint",
     "test": "",
-    "test:all": "script/run-script-all-package.sh test",
-    "init:package": "script/init-package.sh",
-    "init:tsc": "tsc --init"
+    "all:test": "script/run-script-all-package.sh test",
+    "package:init": "script/init-package.sh",
+    "tsc:init": "tsc --init"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
   "homepage": "https://github.com/CourseDesign/design-system#readme",
   "husky": {
     "hooks": {
-      "pre-push": "npm run test:all",
-      "pre-commit": "npm run lint:all"
+      "pre-push": "npm run all:test",
+      "pre-commit": "npm run all:lint"
     }
   },
   "devDependencies": {
