@@ -43,8 +43,6 @@ sh ${scriptPath}/set-up-gulp.sh ${rootPackage} ${package}
 sh ${scriptPath}/set-up-lint.sh ${rootPackage} ${package}
 
 # package.json 수정
-node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
-
 sh ${scriptPath}/sync-package.sh ${templatePath}/default ${package} ${scriptPath}
 
 echo "🎉 Finish to update package.json"
