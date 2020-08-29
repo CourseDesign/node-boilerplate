@@ -45,6 +45,9 @@ sh ${scriptPath}/set-up-lint.sh ${rootPackage} ${package}
 # jest 설정
 sh ${scriptPath}/set-up-jest.sh ${rootPackage} ${package}
 
+# env 설정
+sh ${scriptPath}/set-up-env.sh ${rootPackage} ${package}
+
 # package.json 수정
 sh ${scriptPath}/sync-package.sh ${templatePath}/default ${package} ${scriptPath}
 
