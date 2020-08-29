@@ -34,35 +34,13 @@ package=$(pwd)
 npm init
 
 # typescript 설정
-npm i typescript --save-dev
-npm i @types/node --save-dev
-
-cp ${rootPackage}/tsconfig.json tsconfig.json
-
-echo "🎉 Finish typescript setting"
+sh ${scriptPath}/set-up-typescript.sh ${rootPackage} ${package}
 
 # gulp 설정
-npm install gulp --save-dev
-npm install gulp-typescript --save-dev
-
-cp ${rootPackage}/gulpfile.js gulpfile.js
-
-echo "🎉 Finish gulp setting"
+sh ${scriptPath}/set-up-gulp.sh ${rootPackage} ${package}
 
 # lint 설정
-echo "add eslintrc file"
-
-node ${scriptPath}/extend-eslint.js ${rootPackage} ${package}
-cp ${rootPackage}/.eslintignore .eslintignore
-
-node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
-
-# 의존성이 있는 eslint package
-# npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-# npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
-# npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
-
-echo "🎉 Finish lint setting"
+sh ${scriptPath}/set-up-lint.sh ${rootPackage} ${package}
 
 # package.json 수정
 node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
