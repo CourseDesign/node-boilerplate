@@ -49,6 +49,8 @@ echo "🎉 Finish to update package.json"
 # git add
 git add .
 
+cat ${rootPackage}/.gitignore >> ${package}/.gitignore
+
 echo "🎉 Finish to add git file"
 
 # package 설치
