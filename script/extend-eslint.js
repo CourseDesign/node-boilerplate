@@ -12,12 +12,13 @@ if (packagePath == null) {
     console.error('Package is undefined!');
     process.exit(1);
 }
-const eslintrcJson = require(`'${rootPackagePath}/.eslintrc.json`);
-
-const { project } = eslintrcJson.parserOptions;
 
 const diff = path.relative(rootPackagePath, packagePath);
 
-project.push(`${diff}/tsconfig.json`);
+const eslintrc = {
+  extends: [
+    `${diff}/.eslintrc.json`
+  ]
+}
 
-fs.writeFileSync(`${rootPackagePath}/.eslintrc.json`, JSON.stringify(eslintrcJson, null, 2) + '\n');
+fs.writeFileSync(`${packagePath}/.eslintrc.json`, JSON.stringify(eslintrc, null, 2) + '\n');

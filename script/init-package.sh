@@ -53,13 +53,12 @@ npm install --save-dev lint-staged
 
 echo "add eslintrc file"
 
-echo "{ \"extends\": [\"../../.eslintrc.json\"] }" >> ${package}/.eslintrc.json
+node ${scriptDir}/extend-eslint.js ${rootPackage} ${package}
 cp ${rootPackage}/.eslintignore .eslintignore
 
 echo "install eslint"
 
-cd ${rootPackage}
-node ${rootPackage}/script/add-eslint-parse-option.js "${packageName}"
+node ${scriptDir}/add-eslint-parse-option.js ${rootPackage} ${package}
 
 # 의존성이 있는 eslint package
 # npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin

@@ -15,8 +15,8 @@ packageName=$2
 rootPackage=$(pwd)
 scriptDir=$(dirname "$0")
 
-cd packageDir
-cd packageName
+cd ${packageDir}
+cd ${packageName}
 
 package=$(pwd)
 
