@@ -55,6 +55,7 @@ touch src/index.ts
 echo "🎉 Finish to create default file"
 
 # git add
+cp ${rootPackage}/.gitignore ${package}
 git add .
 
 echo "🎉 Finish to add git file"
