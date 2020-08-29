@@ -9,7 +9,7 @@
     "neon": "neon",
     "lint": "eslint --fix . --resolve-plugins-relative-to .",
     "lint:staged": "lint-staged",
-    "test": "",
+    "test": "jest",
     "package:init": "script/init-package.sh package",
     "package:sync": "script/sync-package.sh package",
     "package:neon:init": "script/init-neon-package.sh package",
@@ -39,7 +39,23 @@
       "eslint --fix"
     ]
   },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true
+      }
+    }
+  },
   "devDependencies": {
+    "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
@@ -51,9 +67,11 @@
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.2.5",
-    "neon-cli": "^0.4.0",
+    "jest": "^26.4.2",
     "lint-staged": "^10.2.13",
+    "neon-cli": "^0.4.0",
     "prettier": "^2.1.1",
+    "ts-jest": "^26.3.0",
     "typescript": "^4.0.2"
   }
 }

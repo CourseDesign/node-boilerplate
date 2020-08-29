@@ -42,6 +42,9 @@ sh ${scriptPath}/set-up-gulp.sh ${rootPackage} ${package}
 # lint 설정
 sh ${scriptPath}/set-up-lint.sh ${rootPackage} ${package}
 
+# jest 설정
+sh ${scriptPath}/set-up-jest.sh ${rootPackage} ${package}
+
 # package.json 수정
 sh ${scriptPath}/sync-package.sh ${templatePath}/default ${package} ${scriptPath}
 

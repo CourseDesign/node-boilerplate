@@ -15,6 +15,7 @@ package=$2
 scriptPath=$3
 
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "main"
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "jest"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
