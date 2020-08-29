@@ -1,7 +1,15 @@
-const gulp = require("gulp");
-const ts = require("gulp-typescript");
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
 
-const tsProject = ts.createProject("tsconfig.json");
+function getTsconfig(env) {
+  if (env != null) {
+    return `tsconfig.${env.toLowerCase()}.json`;
+  }
+
+  return 'tsconfig.json';
+}
+
+const tsProject = ts.createProject(getTsconfig(process.env.NODE_ENV));
 
 const outDir = 'dist'
 

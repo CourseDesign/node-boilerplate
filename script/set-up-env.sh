@@ -16,11 +16,7 @@ scriptPath=${rootPackage}/script
 
 cd ${package}
 
-# typescript 설정
-npm i typescript --save-dev
-npm i @types/node --save-dev
+# env 설정
+npm i cross-env --save-dev
 
-cp ${rootPackage}/tsconfig.json .
-cp ${rootPackage}/tsconfig.*.json .
-
-echo "🎉 Finish typescript setting"
+echo "🎉 Finish env setting"
