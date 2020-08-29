@@ -12,8 +12,8 @@ fi
 
 packageDir=$1
 packageName=$2
-scriptDir=$(dirname "$0")
 rootPackage=$(pwd)
+scriptPath=${rootPackage}/$(dirname "$0")
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
@@ -49,16 +49,12 @@ cp ${rootPackage}/gulpfile.js gulpfile.js
 echo "🎉 Finish gulp setting"
 
 # lint 설정
-npm install --save-dev lint-staged
-
 echo "add eslintrc file"
 
-node ${scriptDir}/extend-eslint.js ${rootPackage} ${package}
+node ${scriptPath}/extend-eslint.js ${rootPackage} ${package}
 cp ${rootPackage}/.eslintignore .eslintignore
 
-echo "install eslint"
-
-node ${scriptDir}/add-eslint-parse-option.js ${rootPackage} ${package}
+node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
 
 # 의존성이 있는 eslint package
 # npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
@@ -70,9 +66,9 @@ echo "🎉 Finish lint setting"
 # package.json 수정
 cd ${rootPackage}
 
-node ${scriptDir}/change-package.js "${package}/package.json" main "dist/index.js"
+node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
 
-sh ${scriptDir}/sync-package.sh ${packageDir} ${packageName}
+sh ${scriptPath}/sync-package.sh ${packageDir} ${packageName}
 
 cd ${package}
 

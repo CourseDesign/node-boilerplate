@@ -20,10 +20,6 @@ cd ${packageName}
 
 package=$(pwd)
 
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" lint-staged
-
 node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
 node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.lint"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.lint:staged"
 node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"

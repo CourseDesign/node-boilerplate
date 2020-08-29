@@ -14,8 +14,6 @@
     "tsc:init": "tsc --init",
     "eslint": "eslint",
     "all:build": "script/run-script-all-package.sh build",
-    "all:lint": "script/run-script-all-package.sh lint",
-    "all:lint:staged": "script/run-script-all-package.sh lint:staged",
     "all:test": "script/run-script-all-package.sh test"
   },
   "repository": {
@@ -31,7 +29,7 @@
   "husky": {
     "hooks": {
       "pre-push": "npm run all:test",
-      "pre-commit": "npm run all:lint:staged"
+      "pre-commit": "npm run lint:staged"
     }
   },
   "lint-staged": {
@@ -54,8 +52,5 @@
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
-  },
-  "dependencies": {
-    "test": "file:package/test"
   }
 }

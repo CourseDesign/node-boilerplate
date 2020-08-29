@@ -12,7 +12,7 @@ if (packagePath == null) {
     console.error('Package is undefined!');
     process.exit(1);
 }
-const eslintrcJson = require(`'${rootPackagePath}/.eslintrc.json`);
+const eslintrcJson = require(`${rootPackagePath}/.eslintrc.json`);
 
 const { project } = eslintrcJson.parserOptions;
 

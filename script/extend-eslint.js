@@ -13,7 +13,7 @@ if (packagePath == null) {
     process.exit(1);
 }
 
-const diff = path.relative(rootPackagePath, packagePath);
+const diff = path.relative(packagePath, rootPackagePath);
 
 const eslintrc = {
   extends: [
