@@ -43,16 +43,35 @@ cp ../../gulpfile.js gulpfile.js
 
 echo "🎉 Finish gulp setting"
 
+# lint 설정
+echo "add eslintrc file"
+
+node ${scriptPath}/extend-eslint.js ${rootPackage} ${package}
+cp ${rootPackage}/.eslintignore .eslintignore
+
+node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
+
+# 의존성이 있는 eslint package
+# npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+# npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+# npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
+
+echo "🎉 Finish lint setting"
+
+# 기존 소스 폴더 변경
 
 mv lib src
 
-# package.json 수정
+echo "🎉 Finish to change src directory"
 
-node ${rootPackage}/${scriptDir}/change-in-package.js "${package}/package.json" main dist/index.js
-node ${rootPackage}/${scriptDir}/add-scipt-in-package.js "${package}/package.json" build 'neon build && gulp'
-node ${rootPackage}/${scriptDir}/add-scipt-in-package.js "${package}/package.json" install 'npm run build'
-node ${rootPackage}/${scriptDir}/add-scipt-in-package.js "${package}/package.json" lint ''
-node ${rootPackage}/${scriptDir}/add-scipt-in-package.js "${package}/package.json" test ''
+# package.json 수정
+cd ${rootPackage}
+
+node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
+
+sh ${scriptPath}/sync-package.sh ${packageDir} ${packageName}
+
+cd ${package}
 
 echo "🎉 Finish to update package.json"
 
