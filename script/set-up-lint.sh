@@ -12,6 +12,7 @@ fi
 
 rootPackage=$1
 package=$2
+scriptPath=${rootPackage}/script
 
 cd ${package}
 
