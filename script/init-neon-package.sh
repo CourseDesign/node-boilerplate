@@ -13,7 +13,8 @@ fi
 packageDir=$1
 packageName=$2
 rootPackage=$(pwd)
-scriptDir=$(dirname "$0")
+scriptPath=${rootPackage}/script
+templatePath=${rootPackage}/template
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
@@ -65,15 +66,16 @@ mv lib src
 echo "🎉 Finish to change src directory"
 
 # package.json 수정
-cd ${rootPackage}
-
 node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
 
-sh ${scriptPath}/sync-package.sh ${packageDir} ${packageName}
-
-cd ${package}
+sh ${scriptPath}/sync-package.sh ${templatePath}/neon ${package} ${scriptPath}
 
 echo "🎉 Finish to update package.json"
+
+# git add
+git add .
+
+echo "🎉 Finish to add git file"
 
 # package 설치
 cd ${rootPackage}

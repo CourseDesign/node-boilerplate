@@ -14,6 +14,7 @@ packageDir=$1
 packageName=$2
 rootPackage=$(pwd)
 scriptPath=${rootPackage}/script
+templatePath=${rootPackage}/template
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
@@ -64,13 +65,9 @@ node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
 echo "🎉 Finish lint setting"
 
 # package.json 수정
-cd ${rootPackage}
-
 node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
 
-sh ${scriptPath}/sync-package.sh ${packageDir} ${packageName}
-
-cd ${package}
+sh ${scriptPath}/sync-package.sh ${templatePath}/default ${package} ${scriptPath}
 
 echo "🎉 Finish to update package.json"
 
