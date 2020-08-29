@@ -13,13 +13,13 @@ fi
 packageDir=$1
 packageName=$2
 rootPackage=$(pwd)
-scriptDir=$(dirname "$0")
+scriptPath=${rootPackage}/$(dirname "$0")
 
 cd ${packageDir}
 cd ${packageName}
 
 package=$(pwd)
 
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
-node ${scriptDir}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
