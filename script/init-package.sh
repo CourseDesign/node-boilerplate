@@ -1,22 +1,29 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-	echo "Package name is undefined!"
+	echo "Package directory is undefined!"
 	exit 1
-else
-  echo "Package name is "$1
 fi
 
-echo "🚀 Start to creat new package $1..."
+if [ -z "$2" ]; then
+	echo "Package name is undefined!"
+	exit 1
+fi
 
+packageDir=$1
+packageName=$2
 rootPackage=$(pwd)
+scriptPath=${rootPackage}/$(dirname "$0")
+
+echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
 # 폴더로 이동
-cd package
+mkdir ${packageDir}
+cd ${packageDir}
 
 # 폴더 생성
-mkdir $1
-cd $1
+mkdir ${packageName}
+cd ${packageName}
 
 echo "🎉 Finish to create new package directory"
 
@@ -29,7 +36,7 @@ npm init
 npm i typescript --save-dev
 npm i @types/node --save-dev
 
-cp ../../tsconfig.json tsconfig.json
+cp ${rootPackage}/tsconfig.json tsconfig.json
 
 echo "🎉 Finish typescript setting"
 
@@ -37,16 +44,33 @@ echo "🎉 Finish typescript setting"
 npm install gulp --save-dev
 npm install gulp-typescript --save-dev
 
-cp ../../gulpfile.js gulpfile.js
+cp ${rootPackage}/gulpfile.js gulpfile.js
 
 echo "🎉 Finish gulp setting"
 
-# package.json 수장
+# lint 설정
+echo "add eslintrc file"
 
-node ../../script/change-in-package.js "${package}/package.json" main dist/index.js
-node ../../script/add-scipt-in-package.js "${package}/package.json" build gulp
-node ../../script/add-scipt-in-package.js "${package}/package.json" lint ''
-node ../../script/add-scipt-in-package.js "${package}/package.json" test ''
+node ${scriptPath}/extend-eslint.js ${rootPackage} ${package}
+cp ${rootPackage}/.eslintignore .eslintignore
+
+node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
+
+# 의존성이 있는 eslint package
+# npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+# npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
+# npm install --save-dev eslint-plugin-import eslint-config-airbnb-base
+
+echo "🎉 Finish lint setting"
+
+# package.json 수정
+cd ${rootPackage}
+
+node ${scriptPath}/change-package.js "${package}/package.json" main "dist/index.js"
+
+sh ${scriptPath}/sync-package.sh ${packageDir} ${packageName}
+
+cd ${package}
 
 echo "🎉 Finish to update package.json"
 
@@ -57,9 +81,13 @@ touch src/index.ts
 
 echo "🎉 Finish to create default file"
 
+# git add
+git add .
+
+echo "🎉 Finish to add git file"
+
 # package 설치
 cd ${rootPackage}
 npm install ${package}
 
-echo "🎉 Finish to install $1"
-
+echo "🎉 Finish to install ${packageName} in ${packageDir}"
