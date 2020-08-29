@@ -17,7 +17,7 @@
     "tsc:init": "tsc --init",
     "eslint": "eslint",
     "all:build": "script/run-script-all-package.sh build",
-    "all:test": "script/run-script-all-package.sh test"
+    "all:build:production": "script/run-script-all-package.sh build:production"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/CourseDesign/design-system#readme",
   "husky": {
     "hooks": {
-      "pre-push": "npm run all:test",
+      "pre-push": "npm run test",
       "pre-commit": "npm run lint:staged"
     }
   },
@@ -48,6 +48,9 @@
     "moduleFileExtensions": [
       "ts",
       "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "dist"
     ],
     "globals": {
       "ts-jest": {

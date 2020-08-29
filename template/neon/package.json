@@ -8,7 +8,7 @@
     "build:production": "cross-env NODE_ENV=production npm run build",
     "build": "neon build && gulp",
     "test": "jest",
-    "install": "npm run build && npm run test"
+    "install": "npm run build:production"
   },
   "lint-staged": {
     "src/*.{js,ts}": [
@@ -23,6 +23,10 @@
     "moduleFileExtensions": [
       "ts",
       "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "dist/",
+      "package"
     ],
     "globals": {
       "ts-jest": {
