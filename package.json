@@ -7,13 +7,15 @@
     "run": "node dist/index.js",
     "build": "gulp",
     "neon": "neon",
-    "lint": "",
+    "lint": "eslint --fix . --resolve-plugins-relative-to .",
+    "lint:staged": "lint-staged",
     "test": "",
-    "package:init": "script/init-package.sh",
+    "package:init": "script/init-package.sh package",
+    "package:sync": "script/sync-package.sh package",
     "package:neon:init": "script/init-neon-package.sh package",
     "tsc:init": "tsc --init",
+    "eslint": "eslint",
     "all:build": "script/run-script-all-package.sh build",
-    "all:lint": "script/run-script-all-package.sh lint",
     "all:test": "script/run-script-all-package.sh test"
   },
   "repository": {
@@ -29,15 +31,29 @@
   "husky": {
     "hooks": {
       "pre-push": "npm run all:test",
-      "pre-commit": "npm run all:lint"
+      "pre-commit": "npm run lint:staged"
     }
+  },
+  "lint-staged": {
+    "src/*.{js,ts}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@types/node": "^14.6.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.2.5",
     "neon-cli": "^0.4.0",
+    "lint-staged": "^10.2.13",
+    "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   }
 }
