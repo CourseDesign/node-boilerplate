@@ -81,7 +81,10 @@ touch src/index.ts
 
 echo "🎉 Finish to create default file"
 
+# git add
 git add .
+
+echo "🎉 Finish to add git file"
 
 # package 설치
 cd ${rootPackage}
