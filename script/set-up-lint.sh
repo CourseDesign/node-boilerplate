@@ -13,9 +13,11 @@ fi
 rootPackage=$1
 package=$2
 
+cd ${package}
+
 # lint 설정
 node ${scriptPath}/extend-eslint.js ${rootPackage} ${package}
-cp ${rootPackage}/.eslintignore .eslintignore
+cp ${rootPackage}/.eslintignore ${package}/.eslintignore
 
 node ${scriptPath}/add-eslint-parse-option.js ${rootPackage} ${package}
 

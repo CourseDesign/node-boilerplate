@@ -14,6 +14,8 @@ rootPackage=$1
 package=$2
 scriptPath=${rootPackage}/script
 
+cd ${package}
+
 # typescript 설정
 npm i typescript --save-dev
 npm i @types/node --save-dev

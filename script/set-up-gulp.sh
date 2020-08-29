@@ -13,6 +13,8 @@ fi
 rootPackage=$1
 package=$2
 
+cd ${package}
+
 # gulp 설정
 npm install gulp --save-dev
 npm install gulp-typescript --save-dev
