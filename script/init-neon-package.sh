@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-	echo "Package directory is undefined!"
+	echo "Source Package is undefined!"
 	exit 1
 fi
 
 if [ -z "$2" ]; then
-	echo "Package name is undefined!"
+	echo "Target Package is undefined!"
 	exit 1
 fi
 
@@ -18,20 +18,19 @@ templatePath=${rootPackage}/template
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
-# 폴더로 이동
-mkdir ${packageDir}
-cd ${packageDir}
+# neon 패키지 만들기
+npm run neon new ${packageName}
 
-# 폴더 생성
-mkdir ${packageName}
-cd ${packageName}
+# 패키지 이동
+mv ${packageName} ${packageDir}
 
-echo "🎉 Finish to create new package directory"
-
+# 패키지 후처리
+cd ${packageDir}/${packageName}
 package=$(pwd)
 
-# npm 설정
-npm init
+# 기존 소스 폴더 변경
+mv lib src
+echo "🎉 Finish to change src directory"
 
 # typescript 설정
 sh ${scriptPath}/set-up-typescript.sh ${rootPackage} ${package}
@@ -43,20 +42,14 @@ sh ${scriptPath}/set-up-gulp.sh ${rootPackage} ${package}
 sh ${scriptPath}/set-up-lint.sh ${rootPackage} ${package}
 
 # package.json 수정
-sh ${scriptPath}/sync-package.sh ${templatePath}/default ${package} ${scriptPath}
+sh ${scriptPath}/sync-package.sh ${templatePath}/neon ${package} ${scriptPath}
 
 echo "🎉 Finish to update package.json"
 
-# 소스 파일 폴더 생성
-mkdir src
-
-touch src/index.ts
-
-echo "🎉 Finish to create default file"
-
 # git add
-cp ${rootPackage}/.gitignore ${package}
 git add .
+
+cat ${rootPackage}/.gitignore >> ${package}/.gitignore
 
 echo "🎉 Finish to add git file"
 

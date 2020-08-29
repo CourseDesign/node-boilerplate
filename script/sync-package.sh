@@ -10,16 +10,13 @@ if [ -z "$2" ]; then
 	exit 1
 fi
 
-packageDir=$1
-packageName=$2
-rootPackage=$(pwd)
-scriptPath=${rootPackage}/$(dirname "$0")
+rootPackage=$1
+package=$2
+scriptPath=$3
 
-cd ${packageDir}
-cd ${packageName}
-
-package=$(pwd)
-
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "main"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.run"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.build"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
+node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.install"
+
