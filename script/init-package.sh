@@ -81,6 +81,8 @@ touch src/index.ts
 
 echo "🎉 Finish to create default file"
 
+git add .
+
 # package 설치
 cd ${rootPackage}
 npm install ${package}
