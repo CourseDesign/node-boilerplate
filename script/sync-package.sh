@@ -13,7 +13,7 @@ fi
 packageDir=$1
 packageName=$2
 rootPackage=$(pwd)
-scriptPath=${rootPackage}/$(dirname "$0")
+scriptPath=$(dirname "$0")
 
 cd ${packageDir}
 cd ${packageName}
