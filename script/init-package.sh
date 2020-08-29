@@ -13,7 +13,7 @@ fi
 packageDir=$1
 packageName=$2
 rootPackage=$(pwd)
-scriptPath=$(dirname "$0")
+scriptPath=${rootPackage}/script
 
 echo "🚀 Start to creat new package ${packageName} in ${packageDir}..."
 
