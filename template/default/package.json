@@ -8,7 +8,8 @@
     "build:production": "cross-env NODE_ENV=production npm run build",
     "build": "gulp",
     "test": "jest",
-    "install": "npm run build:production"
+    "install": "npm run build:production",
+    "prepublish": "npm run build:production"
   },
   "lint-staged": {
     "src/*.{js,ts}": [

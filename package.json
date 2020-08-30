@@ -20,7 +20,7 @@
     "all:install": "script/run-command-all-package.sh install",
     "all:build": "script/run-command-all-package.sh run build",
     "all:build:production": "script/run-command-all-package.sh run build:production",
-    "prepublish": "npm run all:build:production"
+    "prepublish": "npm run build:production"
   },
   "repository": {
     "type": "git",
