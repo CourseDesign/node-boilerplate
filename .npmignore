@@ -2,7 +2,10 @@ src
 script
 template
 .github
-package
+
+# local package
+*/**/src
+*/**/node_modules
 
 # Logs
 old/logs
