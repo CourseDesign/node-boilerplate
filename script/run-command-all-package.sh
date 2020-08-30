@@ -6,7 +6,7 @@ if [ "$#" -lt 1 ]; then
     echo "Usage: $0 [options]"
 	exit 1
 fi
-args=$@
+args=$*
 
 rootPackage=$(pwd)
 
