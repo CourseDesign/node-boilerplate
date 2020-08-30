@@ -17,7 +17,8 @@
     "tsc:init": "tsc --init",
     "eslint": "eslint",
     "all:build": "script/run-script-all-package.sh build",
-    "all:build:production": "script/run-script-all-package.sh build:production"
+    "all:build:production": "script/run-script-all-package.sh build:production",
+    "prepublish": "npm run all:build:production && npm run test"
   },
   "repository": {
     "type": "git",
