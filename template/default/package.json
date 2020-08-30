@@ -10,7 +10,6 @@
     "test": "jest",
     "install": "npm run build:production",
     "prepublish": "npm run build:production"
-
   },
   "lint-staged": {
     "src/*.{js,ts}": [
