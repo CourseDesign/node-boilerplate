@@ -66,6 +66,11 @@ git add .
 
 echo "🎉 Finish to add git file"
 
+# npm ignore
+cp ${rootPackage}/.npmignore ${package}
+
+echo "🎉 Finish to copy npm ignore"
+
 # package 설치
 cd ${rootPackage}
 npm install ${package}
