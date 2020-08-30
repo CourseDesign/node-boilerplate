@@ -52,17 +52,18 @@ sh ${scriptPath}/sync-package.sh ${templatePath}/neon ${package} ${scriptPath}
 
 echo "🎉 Finish to update package.json"
 
+# npm ignore
+cp ${rootPackage}/.npmignore ${package}
+
+echo "🎉 Finish to copy npm ignore"
+
+
 # git add
 git add .
 
 cat ${rootPackage}/.gitignore >> ${package}/.gitignore
 
 echo "🎉 Finish to add git file"
-
-# npm ignore
-cp ${rootPackage}/.npmignore ${package}
-
-echo "🎉 Finish to copy npm ignore"
 
 # package 설치
 cd ${rootPackage}
