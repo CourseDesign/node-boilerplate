@@ -3,10 +3,16 @@ name: Test CI
 on:
   push:
     branches:
-      - '**'
+      - 'master'
+      - 'develop'
+      - 'release'
+      - 'hotfix/*'
   pull_request:
     branches:
-      - '**'
+      - 'master'
+      - 'develop'
+      - 'release'
+      - 'hotfix/*'
 
 jobs:
   build:
