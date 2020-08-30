@@ -19,6 +19,6 @@ const eslintrc = {
   extends: [
     `${diff}/.eslintrc.json`
   ]
-}
+};
 
 fs.writeFileSync(`${packagePath}/.eslintrc.json`, JSON.stringify(eslintrc, null, 2) + '\n');

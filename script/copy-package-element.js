@@ -33,7 +33,7 @@ while (tokens.length > 1) {
     process.exit(1);
   }
   if (target[token] == null) {
-    target[token] = {}
+    target[token] = {};
   }
 
   source = source[token];
