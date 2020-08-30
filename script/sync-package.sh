@@ -22,4 +22,3 @@ node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${pack
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.test"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.install"
 node ${scriptPath}/copy-package-element.js "${rootPackage}/package.json" "${package}/package.json" "scripts.prepublish"
-
