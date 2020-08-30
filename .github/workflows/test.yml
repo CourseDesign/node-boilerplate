@@ -3,18 +3,14 @@ name: Test CI
 on:
   push:
     branches:
-      - '**'
-      - '!master'
-      - '!develop'
-      - '!release'
-      - '!hotfix/*'
+      - 'master'
+      - 'develop'
+      - 'release'
   pull_request:
     branches:
-      - '**'
-      - '!master'
-      - '!develop'
-      - '!release'
-      - '!hotfix/*'
+      - 'master'
+      - 'develop'
+      - 'release'
 
 jobs:
   build:
