@@ -1,0 +1,36 @@
+{
+  "name": "template-default",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "run": "node dist/index.js",
+    "build:production": "cross-env NODE_ENV=production npm run build",
+    "build": "gulp",
+    "test": "jest",
+    "install": "npm run build:production"
+  },
+  "lint-staged": {
+    "src/*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "dist"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true
+      }
+    }
+  }
+}
