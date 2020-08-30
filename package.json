@@ -8,7 +8,8 @@
     "build:production": "cross-env NODE_ENV=production npm run build",
     "build": "gulp",
     "neon": "neon",
-    "lint": "eslint --fix . --resolve-plugins-relative-to .",
+    "lint": "eslint . --resolve-plugins-relative-to .",
+    "lint:fix": "eslint --fix . --resolve-plugins-relative-to .",
     "lint:staged": "lint-staged",
     "test": "jest",
     "package:init": "script/init-package.sh package",
@@ -19,7 +20,7 @@
     "all:install": "script/run-command-all-package.sh install",
     "all:build": "script/run-command-all-package.sh run build",
     "all:build:production": "script/run-command-all-package.sh run build:production",
-    "prepublish": "npm run all:build:production && npm run test"
+    "prepublish": "npm run all:build:production"
   },
   "repository": {
     "type": "git",
