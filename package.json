@@ -16,7 +16,6 @@
     "test": "jest",
     "install:all": "script/run-command-all-package.sh install",
     "package:init": "script/init-package.sh package",
-    "package:sync": "script/sync-package.sh package",
     "package:neon:init": "script/init-neon-package.sh package",
     "neon": "neon",
     "eslint": "eslint"
