@@ -5,10 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "run": "node dist/index.js",
+    "test": "jest",
     "build:production": "cross-env NODE_ENV=production npm run build",
     "build": "neon build && gulp",
-    "test": "jest",
-    "install": "npm run build:production",
     "prepublish": "npm run build:production"
   },
   "lint-staged": {
