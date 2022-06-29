@@ -2,6 +2,8 @@
   "name": "node-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
+  "author": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "gulp",
@@ -10,11 +12,10 @@
     "compile": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "package:sort": "sort-package-json \"**/package.json\"",
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "test": "jest"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^28.1.3",
     "@types/node": "^16.11.41",
