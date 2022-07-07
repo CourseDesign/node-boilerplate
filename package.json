@@ -1,83 +1,44 @@
 {
-  "name": "design-system",
+  "name": "node-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
+  "author": "",
   "main": "dist/index.js",
   "scripts": {
-    "run": "node dist/index.js",
-    "prepublish": "npm run build:production",
     "build": "gulp",
-    "build:production": "cross-env NODE_ENV=production npm run build",
-    "build:all": "script/run-command-all-package.sh run build",
-    "build:production:all": "script/run-command-all-package.sh run build:production",
-    "lint": "eslint . --resolve-plugins-relative-to .",
-    "lint:fix": "eslint --fix . --resolve-plugins-relative-to .",
-    "lint:staged": "lint-staged",
-    "test": "jest",
-    "install:all": "script/run-command-all-package.sh install",
-    "package:init": "script/init-package.sh package",
-    "package:neon:init": "script/init-neon-package.sh package",
-    "neon": "neon",
-    "eslint": "eslint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CourseDesign/design-system.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CourseDesign/design-system/issues"
-  },
-  "homepage": "https://github.com/CourseDesign/design-system#readme",
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run test",
-      "pre-commit": "npm run lint:staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix"
-    ]
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "testRegex": "\\.spec\\.ts$",
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "modulePathIgnorePatterns": [
-      "dist"
-    ],
-    "globals": {
-      "ts-jest": {
-        "diagnostics": true
-      }
-    }
+    "build:watch": "gulp watch",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "package:sort": "sort-package-json \"**/package.json\"",
+    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
+    "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.10",
-    "@types/node": "^16.10.9",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^4.15.2",
-    "cross-env": "^7.0.2",
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb-typescript": "^9.0.0",
-    "eslint-config-prettier": "^7.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "@types/jest": "^28.1.3",
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "cross-env": "^7.0.3",
+    "deepmerge": "^4.2.2",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-monorepo": "^0.3.2",
+    "glob": "^8.0.3",
     "gulp": "^4.0.2",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^7.0.0",
-    "jest": "^26.4.2",
-    "lint-staged": "^11.0.0",
-    "neon-cli": "^0.8.0",
-    "prettier": "^2.1.1",
-    "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "gulp-changed": "^4.0.3",
+    "gulp-if": "^3.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "pinst": "^3.0.0",
+    "sort-package-json": "^1.57.0",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
   }
 }
